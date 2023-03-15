@@ -119,7 +119,8 @@ vagrant_content='
 Vagrant.configure("2") do |config|
 
     config.vm.define "ubuntu" do |ubuntu|
-        ubuntu.vm.box = "ubuntu/trusty64"
+        ubuntu.vm.box = "acntech/ubuntu"
+        ubuntu.vm.box_version = "22.04.2"
     end
 
     config.vm.define "debian" do |debian|
@@ -151,7 +152,7 @@ fi
 
 #=======================================================================
 
-if [ -v VAGRANT_HOME ]; then
+if grep -q "Setuping Vagrant" ~/.zshrc; then
     setup_boxes
 else
     echo '
